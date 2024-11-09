@@ -36,7 +36,11 @@ body {
 
   /* Sección de navegación dentro del contenedor */
   &__nav {
+
+    position: relative; /* Cambia la posición de static a relative */
+    z-index: 102;        /* Ahora z-index tendrá efecto */
       ul {
+        
           list-style-type: none; /* Elimina el estilo de lista predeterminado */
           padding: 0; /* Quita padding adicional */
           display: flex; /* Coloca los elementos de lista en una fila */

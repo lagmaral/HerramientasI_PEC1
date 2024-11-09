@@ -20,7 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         card.addEventListener('click', () => {
             const data = card.getAttribute('data');
-            window.location.href = `detalle-${data}.html`;
+            if (data === 'olabarri') {
+                //porque solo hemos hecho un detalle
+                window.location.href = `detalle-${data}.html`;
+            }else{
+                window.location.href = '../index.html';
+            }
         });
     });
 
