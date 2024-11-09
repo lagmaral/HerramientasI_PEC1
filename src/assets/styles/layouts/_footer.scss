@@ -1,0 +1,77 @@
+.footer {
+  font-family: $font-family-sans-serif;
+  background-color: $blue-color; 
+  color: $footer-font-default-color; 
+  width: 100%; 
+  padding: 20px 0;
+  bottom: 0; 
+  left: 0;
+  
+  /* Elemento: Contenedor principal del contenido del footer */
+  &__content {
+    max-width: 1200px; /* Ancho máximo para centrar el contenido */
+    margin: 0 auto; /* Centra el contenido */
+    display: flex; /* Elementos en la misma fila */
+    justify-content: space-between; /* Distribuye los elementos a los extremos */
+    align-items: center; /* Alinea verticalmente al centro */
+
+    /* Para pantallas pequeñas, apilar los elementos en dos filas */
+    @media (max-width: 768px) {
+      flex-direction: column; /* Apilar verticalmente */
+      text-align: center; /* Centrar el texto */
+    }
+  }
+
+  /* Elemento: Texto del copyright */
+  &__copyright { 
+    margin: 0; /* Elimina márgenes */
+    font-size: 0.9rem; /* Tamaño de fuente un poco más pequeño */
+    color:$white-color;
+    /* Para pantallas pequeñas, apilar este elemento primero */
+    @media (max-width: 768px) { 
+      margin-bottom: 10px; /* Añadir un espacio debajo del copyright */
+    }
+  }
+
+  /* Elemento: Lista de enlaces del footer */
+  &__links {
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0; 
+    padding: 0; /* Elimina márgenes y padding */
+    display: flex; /* Los elementos de la lista siempre estarán en fila */
+    flex-direction: row; /* Mantener alineación horizontal en todos los tamaños de pantalla */
+
+    /* Elemento: Item individual dentro de la lista */
+    &__item {
+      display: inline; /* Para que los items se dispongan en una línea */
+      margin-right: 15px; /* Espaciado entre los items */
+
+      &:last-child {
+        margin-right: 0; /* Sin margen a la derecha para el último item */
+      }
+
+      /* Para pantallas pequeñas, eliminar el margen izquierdo */
+      @media (max-width: 768px) { 
+        margin-left: 0; 
+      }
+    }
+
+    /* Elemento: Enlace dentro del item de la lista */
+    &__link {
+      text-decoration: none; /* Elimina el subrayado de los enlaces */
+      color: $footer-font-default-color; /* Color por defecto para los enlaces */
+      font-weight: bold; /* Resalta los enlaces */
+
+      &:not(:last-child)::after {
+        content: "|"; /* Añade un separador */
+        margin-left: 10px; /* Separación con la línea divisoria */
+        color: $footer-font-default-color; /* Color del separador */
+      }
+
+      &:hover {
+        color: lighten($footer-font-default-color, 15%); /* Aclarar color en hover */
+        text-decoration: underline; /* Subraya el texto al pasar el cursor */
+      }
+    }
+  }
+}

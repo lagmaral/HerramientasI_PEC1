@@ -1,0 +1,92 @@
+.header {
+  /* `.header` es el contenedor principal del encabezado. */
+
+  &__flag {
+    /* `.header__flag` representa la sección fija de bandas de colores en la parte superior de la pantalla. */
+    
+    position: fixed;  /* Fija la sección en la parte superior de la pantalla. */
+    top: 0;           /* Alinea el contenedor con el borde superior de la ventana. */
+    left: 0;          /* Alinea el contenedor con el borde izquierdo de la ventana. */
+    width: 100vw;     /* Ocupa el 100% del ancho de la ventana. */
+    height: 10vh;     /* Ocupa el 10% de la altura de la ventana. */
+    display: flex;    /* Activa Flexbox para distribuir sus elementos hijos en columnas. */
+    flex-direction: column; /* Alinea los elementos hijos en dirección vertical. */
+    z-index: 10;      /* Asegura que esta sección quede por encima de otros elementos. */
+
+    &__bands {
+      z-index: 1000;
+      /* `.header__flag__bands` contiene las bandas de color que forman la bandera en el encabezado. */
+
+      width: 100vw; /* Asegura que cada banda ocupe el ancho completo de la ventana. */
+
+      &__color1 {
+        /* `.header__flag__bands__color1` es la primera banda de color. */
+        
+        height: 2.5vh;                  /* Ocupa el 2.5% de la altura de la ventana. */
+        background-color: $flag-red-color; /* Color de fondo rojo. */
+      }
+
+      &__color2 {
+        /* `.header__flag__bands__color2` es la segunda banda de color. */
+
+        height: 2.5vh;                    /* Ocupa el 2.5% de la altura de la ventana. */
+        background-color: $flag-white-color; /* Color de fondo blanco. */
+      }
+
+      &__color3 {
+        /* `.header__flag__bands__color3` es la tercera banda de color. */
+
+        height: 2.5vh;                    /* Ocupa el 2.5% de la altura de la ventana. */
+        background-color: $flag-green-color; /* Color de fondo verde. */
+      }
+
+      &__color4 {
+        /* `.header__flag__bands__color4` es la cuarta banda de color. */
+
+        height: 2.5vh;                    /* Ocupa el 2.5% de la altura de la ventana. */
+        background-color: $flag-yellow-color; /* Color de fondo amarillo. */
+      }
+
+      &__icon {
+        /* `.header__flag__bands__icon` es un icono que se muestra en la sección de bandas. */
+        
+        position: absolute; /* Posiciona el icono de manera absoluta dentro del contenedor `.header__flag`. */
+        left: 2rem;         /* Se desplaza 2rem desde el borde izquierdo. */
+        top: 0;             /* Alineado con la parte superior del contenedor. */
+        height: 10vh;       /* Ocupa el mismo alto que la sección de bandas. */
+        width: auto;        /* Su anchura se ajusta automáticamente para mantener las proporciones. */
+        object-fit: contain; /* Ajusta la imagen para que mantenga sus proporciones sin recortarse. */
+      }
+
+      /* Oculta las bandas de colores cuando el ancho de la ventana es igual o inferior a 768px */
+      @media (width <= 768px) { 
+        display: none; 
+      }
+    }
+  }
+
+  &__image {
+    z-index: 1001;
+    /* `.header__image` es una sección para mostrar una imagen completa justo debajo de las bandas de color. */
+
+    position: fixed;  /* La imagen está fija en la pantalla, como el contenedor de bandas. */
+    top: 10vh;        /* Se posiciona justo debajo de `.header__flag`, que tiene 10vh de altura. */
+    left: 0;          /* Alineada con el borde izquierdo de la ventana. */
+    width: 100vw;     /* Ocupa el ancho total de la ventana. */
+    height: 25vh;     /* Ocupa el 25% de la altura de la ventana. */
+    overflow: hidden; /* Esconde cualquier contenido desbordado. */
+
+    &__full {
+      /* `.header__image__full` contiene la imagen completa para que ocupe el ancho total. */
+
+      width: 100vw;   /* Asegura que la imagen ocupe todo el ancho de la ventana. */
+      object-fit: cover; /* La imagen se recorta para ajustarse completamente al contenedor sin distorsión. */
+      display: block; /* Se muestra como un bloque dentro de `.header__image`. */
+    }
+
+    /* Reposiciona la imagen al tope de la pantalla cuando el ancho es igual o menor a 768px */
+    @media (width <= 768px) { 
+      top: 0;  
+    }
+  }
+}

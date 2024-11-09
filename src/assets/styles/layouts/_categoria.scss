@@ -1,0 +1,47 @@
+/* Grid principal dentro de .container__main */
+.container__main__grid {
+
+    margin-top: 2vh; /* Espacio superior para separar la sección de contenido anterior */
+    margin-bottom: 2vh;
+    display: grid; /* Configura el contenedor para usar Grid Layout */
+    //grid-template-columns: repeat(auto-fit, minmax(15vw, 1fr)); 
+    grid-template-columns: repeat(3, 1fr);/* Define columnas flexibles */
+    gap: 1rem; /* Espacio entre los elementos de la cuadrícula */
+    padding: 1rem; /* Relleno interno para el contenedor grid */
+
+    /* Ajustes de margen para pantallas medianas (769px a 1023px de ancho) */
+    @media (min-width: 769px) and (max-width: 1023px) { grid-template-columns: repeat(2, 1fr);/* Define columnas flexibles */}
+
+    /* Ajustes de margen para pantallas pequeñas (768px o menos) */
+    @media (width <= 768px) { grid-template-columns: repeat(1, 1fr);/* Define columnas flexibles */ }
+
+
+    /* Estilos para las tarjetas dentro del grid */
+    &__card {
+        z-index: 1;
+        background-color: $white-color; /* Fondo blanco para cada tarjeta */
+        color: $index-font-color; /* Color de texto principal de la tarjeta */
+        border-radius: 10px; /* Bordes redondeados para la tarjeta */
+        border: 1px solid $blue-color; /* Borde con el color definido en la variable */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para un efecto de elevación */
+        overflow: hidden; /* Oculta el contenido que sobresale de los bordes */
+        transition: transform 0.3s ease; /* Suaviza la transición al hacer hover */
+
+        /* Efecto hover en la tarjeta */
+        &:hover {
+            transform: translateY(-0.5rem); /* Eleva la tarjeta ligeramente al pasar el cursor */
+        }
+
+        /* Imagen dentro de la tarjeta */
+        img {
+            width: 100%; /* La imagen ocupa el ancho completo de la tarjeta */
+            height: 200px; /* Altura fija para las imágenes */
+            object-fit: cover; /* Recorta la imagen para llenar el contenedor sin deformarse */
+        }
+
+        /* Estilos de los títulos y párrafos dentro de la tarjeta */
+        h2, p {
+            padding: 1rem; /* Relleno interno para separar el texto de los bordes */
+        }
+    }
+}
