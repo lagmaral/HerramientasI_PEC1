@@ -91,5 +91,15 @@
 
       /* Espacio inferior adicional en el párrafo */
       padding-bottom: 1rem;
+      @media (min-width: 769px) and (max-width: 1023px) { 
+        padding-left: 2rem; 
+        padding-right: 2rem;
+      }
+
+      /* Ajustes de margen para pantallas pequeñas (768px o menos) */
+      @media (width <= 768px) {      
+        padding-left: 1rem; 
+        padding-right: 1rem;
+      }
   }
 }
